@@ -8,5 +8,10 @@ void main() {
   // returns `application/pdf`
 
   print(Mime.getMime('application/pdf'));
-  // returns MimeData(charset: null, source: iana, compressible: false, extensions: [pdf])
+  // returns MimeData(
+  //  charset: null, 
+  //  source: iana, 
+  //  compressible: false, 
+  //  extensions: [pdf]
+  // )
 }
