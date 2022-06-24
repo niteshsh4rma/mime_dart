@@ -1,0 +1,34 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - 'dev'
+      - 'feat:*'
+      - 'fix:*'
+      - 'doc:*'
+    types:
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - synchronize
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: google/dart:latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: pub get
+
+      - name: Analyze Linting Errors
+        run: pub run analyze
+
+      - name: Run Tests
+        run: pub rub test
