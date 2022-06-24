@@ -1,13 +1,7 @@
-name: Tests
+name: Analyzer and Tests
 
 on:
   pull_request:
-    branches:
-      - 'main'
-      - 'dev'
-      - 'feat:*'
-      - 'fix:*'
-      - 'doc:*'
     types:
       - opened
       - edited
@@ -16,20 +10,15 @@ on:
       - synchronize
 
 jobs:
-  build:
+  test:
+    name: Analyze and Test
     runs-on: ubuntu-latest
-
-    container:
-      image: dart:latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: pub get
-
-      - name: Analyze Linting Errors
-        run: pub run analyze
-
-      - name: Run Tests
-        run: pub rub test
+    - uses: actions/checkout@v3
+    - uses: dart-lang/setup-dart@v1
+    - name: Install Dependencies
+      run: dart pub get
+    - name: Analyze
+      run: dart analyze --fatal-infos --fatal-warnings .
+    - name: Test
+      run: dart test
