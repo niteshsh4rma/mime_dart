@@ -8,18 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    container:
-      image: google/dart:latest
-
     steps:
       - uses: actions/checkout@v2
-
+      - uses: dart-lang/setup-dart@v1
       - name: Install Dependencies
-        run: pub get
+        run: dart pub get
 
       - name: Run Tests
-        run: pub run test
+        run: dart test
       
       - name: Setup Pub Credentials
         shell: bash
@@ -31,6 +27,6 @@ jobs:
         run: |
           sh .github/scripts/pub_login.sh
       - name: Check Publish Warnings
-        run: pub publish --dry-run
+        run: dart pub publish --dry-run
       - name: Publish Package
-        run: pub publish -f
+        run: dart pub publish -f
