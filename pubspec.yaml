@@ -1,6 +1,6 @@
 name: mime_dart
-description: Mime Types for Dart and Flutter.
-version: 2.0.0
+description: Get Mime Types, Extensions, Compressible for Dart and Flutter. Inspired from IANA Databse
+version: 2.0.1
 homepage: https://github.com/niteshsh4rma/mime_dart
 
 environment:

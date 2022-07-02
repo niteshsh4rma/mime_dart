@@ -2,8 +2,8 @@ Mime Types for Dart and Flutter
 
 ## Features
 
-- Get Mime Type from Extension
-- Get Extension Name from Mime Type
+- Get Mime Types from Extension
+- Get Extensions Name from Mime Type
 
 ## Usage 
 
@@ -11,13 +11,18 @@ Mime Types for Dart and Flutter
 import 'package:mime_dart/mime_dart.dart';
 
 void main(List<String> args) {
-  print(Mime.getExtensionFromType('application/pdf'));
-  // returns `pdf`
+print(Mime.getExtensionsFromType('application/xml'));
+  // returns `[xml, xsl, xsd, rng]`
 
-  print(Mime.getTypeFromExtension('pdf'));
-  // returns `application/pdf`
+  print(Mime.getTypesFromExtension('xml'));
+  // returns `[application/xml, text/xml]`
 
-  print(Mime.getMime('application/pdf'));
-  // returns MimeData(charset: null, source: iana, compressible: false, extensions: [pdf])
+  print(Mime.getMimeData('application/xml'));
+  // returns MimeData(
+  //   charset: null,
+  //   source: iana,
+  //   compressible: true,
+  //   extensions: [xml, xsl, xsd, rng],
+  // );
 }
 ```

@@ -1,3 +1,7 @@
+## 2.0.1
+
+* Updated README.md example
+
 ## 2.0.0
 
 * Updated methods to maintain consistencty from Database
