@@ -1,17 +1,17 @@
 import 'package:mime_dart/mime_dart.dart';
 
 void main() {
-  print(Mime.getExtensionFromType('application/pdf'));
-  // returns `pdf`
+  print(Mime.getExtensionsFromType('application/xml'));
+  // returns `[xml, xsl, xsd, rng]`
 
-  print(Mime.getTypeFromExtension('pdf'));
-  // returns `application/pdf`
+  print(Mime.getTypesFromExtension('xml'));
+  // returns `[application/xml, text/xml]`
 
-  print(Mime.getMime('application/pdf'));
+  print(Mime.getMimeData('application/xml'));
   // returns MimeData(
-  //  charset: null, 
-  //  source: iana, 
-  //  compressible: false, 
-  //  extensions: [pdf]
-  // )
+  //   charset: null,
+  //   source: iana,
+  //   compressible: true,
+  //   extensions: [xml, xsl, xsd, rng],
+  // );
 }

@@ -1,6 +1,6 @@
 name: mime_dart
 description: Mime Types for Dart and Flutter.
-version: 1.0.1
+version: 2.0.0
 homepage: https://github.com/niteshsh4rma/mime_dart
 
 environment:
