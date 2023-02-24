@@ -1,3 +1,8 @@
+## 3.0.0
+
+* Added case-insensitive check for types
+* Added more mime types
+
 ## 2.0.1
 
 * Updated README.md example

@@ -11,7 +11,7 @@ Mime Types for Dart and Flutter
 import 'package:mime_dart/mime_dart.dart';
 
 void main(List<String> args) {
-print(Mime.getExtensionsFromType('application/xml'));
+  print(Mime.getExtensionsFromType('application/xml'));
   // returns `[xml, xsl, xsd, rng]`
 
   print(Mime.getTypesFromExtension('xml'));

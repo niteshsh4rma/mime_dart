@@ -17,10 +17,14 @@ class Mime {
   ///
   /// Returns `[pdf]`
   static List<String>? getExtensionsFromType(String type) {
-    if (type.isEmpty) return null;
+    final parsedType = type.toLowerCase();
 
-    if (database.containsKey(type)) {
-      MimeData mime = MimeData.fromJson(database[type] as Map<String, Object?>);
+    if (parsedType.isEmpty) return null;
+
+    if (database.containsKey(parsedType)) {
+      MimeData mime = MimeData.fromJson(
+        database[parsedType] as Map<String, Object?>,
+      );
       return mime.extensions;
     }
 
@@ -33,14 +37,17 @@ class Mime {
   ///
   /// Returns `[application/pdf]`
   static List<String>? getTypesFromExtension(String extension) {
-    if (extension.isEmpty) return null;
+    final parsedExtension = extension.toLowerCase();
+
+    if (parsedExtension.isEmpty) return null;
 
     List<String> types = [];
 
     for (final entry in database.entries) {
       final mime = MimeData.fromJson(entry.value as Map<String, Object?>);
 
-      if (mime.extensions != null && mime.extensions!.contains(extension)) {
+      if (mime.extensions != null &&
+          mime.extensions!.contains(parsedExtension)) {
         types.add(entry.key);
       }
     }
@@ -54,10 +61,11 @@ class Mime {
   ///
   /// returns [MimeData] object with relevant fields
   static MimeData? getMimeData(String type) {
-    if (type.isEmpty || !database.containsKey(type)) {
+    final parsedType = type.toLowerCase();
+    if (parsedType.isEmpty || !database.containsKey(parsedType)) {
       return null;
     }
 
-    return MimeData.fromJson(database[type] as Map<String, Object?>);
+    return MimeData.fromJson(database[parsedType] as Map<String, Object?>);
   }
 }
